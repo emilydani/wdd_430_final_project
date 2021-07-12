@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+
+      <div class="panel-heading clearfix">
+          <h2 style="margin-top:0;margin-bottom:0;">To-Do Application</h2>
+          <br>
+          <cms-contact-edit></cms-contact-edit>
+      </div>
+
+      <div class="panel-body">
+        <cms-contact-item
+          *ngFor="let contactEl of contacts | contactsFilter:term, let i = index, let contact of contacts"
+          [contact]="contactEl" dnd-draggable [dragEnabled]="true" [dragData]="contactEl"
+          [dropZones]="['contactGroup']">
+        </cms-contact-item>
+      </div>
+    </div>
+  </div>
+</div>

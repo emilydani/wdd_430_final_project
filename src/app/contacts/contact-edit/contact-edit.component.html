@@ -1,0 +1,23 @@
+<div class="col-xs-12">
+
+    <form id="contact-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group input-group">
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter a task"
+            class="form-control required" size="120" max="120" name="name"
+            [ngModel]="contact?.name" #name="ngModel"
+          >
+          <span class="input-group-btn">
+            <button
+              class="btn btn-success"
+              type="submit" [disabled]="!f.valid">+
+            </button>
+          </span>
+
+        </div>
+      </div>
+    </form>
+</div>
