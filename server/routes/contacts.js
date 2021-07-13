@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
     .then(contacts => {
         console.log(contacts);
       res.status(200).json({
-          message: 'Contacts fetched successfully!',
+          message: 'Task fetched successfully!',
           contacts: contacts
         });
     })
@@ -28,17 +28,13 @@ router.post('/', (req, res, next) => {
 
     const contact = new Contact({
       id: maxContactId,
-      name: req.body.name,
-      email: req.body.email,
-      phone: req.body.phone,
-      imgUrl: req.body.imgUrl,
-      group: req.body.group
+      name: req.body.name
     });
 
     contact.save()
       .then(createdContact => {
         res.status(201).json({
-          message: 'Contact added successfully',
+          message: 'Task added successfully',
           contact: createdContact
         });
       })
@@ -55,15 +51,11 @@ router.put('/:id', (req, res, next) => {
     Contact.findOne({ id: req.params.id })
       .then(contact => {
         contact.name = req.body.name;
-        contact.email = req.body.email;
-        contact.phone = req.body.phone;
-        contact.imgUrl = req.body.imgUrl;
-        contact.group = req.body.group;
 
         Contact.updateOne({ id: req.params.id }, contact)
           .then(result => {
             res.status(204).json({
-              message: 'Contact updated successfully'
+              message: 'Task updated successfully'
             })
           })
           .catch(error => {
@@ -75,7 +67,7 @@ router.put('/:id', (req, res, next) => {
       })
       .catch(error => {
         res.status(500).json({
-          message: 'Contact not found.',
+          message: 'Task not found.',
           error: { message: 'Contact not found'}
         });
       });
@@ -87,7 +79,7 @@ router.delete("/:id", (req, res, next) => {
         Contact.deleteOne({ id: req.params.id })
           .then(result => {
             res.status(204).json({
-              message: "Contact deleted successfully"
+              message: "Task deleted successfully"
             });
           })
           .catch(error => {
@@ -99,8 +91,8 @@ router.delete("/:id", (req, res, next) => {
       })
       .catch(error => {
         res.status(500).json({
-          message: 'Contact not found.',
-          error: { message: 'Contact not found'}
+          message: 'Task not found.',
+          error: { message: 'Task not found'}
         });
       });
 });

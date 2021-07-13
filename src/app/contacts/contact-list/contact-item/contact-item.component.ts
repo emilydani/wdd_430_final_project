@@ -53,12 +53,9 @@ export class ContactItemComponent implements OnInit {
     let value = form.value;
     let newContact = new Contact(
       null,
+      null,
       value.name,
-      null,
-      null,
-      null,
-      null,
-      null
+
     );
 
     if (this.editMode) {

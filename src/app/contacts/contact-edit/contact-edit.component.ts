@@ -34,9 +34,6 @@ export class ContactEditComponent implements OnInit {
         }
         this.editMode = true;
         this.contact = JSON.parse(JSON.stringify(this.originalContact));
-        // if (this.contact.group) {
-        //   this.groupContacts = this.contact.group;
-        // }
       }
     });
   }
@@ -45,12 +42,8 @@ export class ContactEditComponent implements OnInit {
     let value = form.value;
     let newContact = new Contact(
       null,
-      value.name,
-      value.email,
-      value.phone,
-      value.imageUrl,
       null,
-      null
+      value.name
     );
 
     if (this.editMode) {
@@ -61,9 +54,9 @@ export class ContactEditComponent implements OnInit {
     this.router.navigate(['/contacts'], { relativeTo: this.route });
   }
 
-  onCancel() {
-    this.router.navigate(['/contacts'], { relativeTo: this.route });
-  }
+  // onCancel() {
+  //   this.router.navigate(['/contacts'], { relativeTo: this.route });
+  // }
 
   isInvalidContact(newContact: Contact) {
     if (!newContact) {
@@ -73,16 +66,8 @@ export class ContactEditComponent implements OnInit {
     if (this.contact && newContact.id === this.contact.id) {
       return true;
     }
-    for (let i = 0; i < this.groupContacts.length; i++) {
-      if (newContact.id === this.groupContacts[i].id) {
-        return true;
-      }
-    }
     return false;
   }
-
-
-
 
   onRemoveItem(index: number) {
     if (index < 0 || index >= this.groupContacts.length) {

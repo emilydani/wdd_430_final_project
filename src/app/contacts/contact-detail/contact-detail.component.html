@@ -6,9 +6,6 @@
           {{contact?.name}}
         </h1>
       </div>
-      <span class="pull-left">
-        <img [src]="contact?.imageUrl" alt="{{contact?.name}}" class="img-responsive" style="max-width: 80px;">
-      </span>
       <span class="pull-right">
         <a class="btn btn-primary"
         [routerLink]="[{ id: contact.id}, 'edit']"
@@ -19,10 +16,6 @@
         (click)="onDelete()"
         >Delete</a>
       </span>
-    </div>
-    <div class="panel-body">
-      <p><b>Email:</b> {{contact?.email}}</p>
-      <p><b>Phone:</b> {{contact?.phone}}</p>
     </div>
   </div>
 </div>
