@@ -18,6 +18,9 @@ export class ContactItemComponent implements OnInit {
   editMode: boolean = false;
   id: string;
 
+  name = 'Angular';
+  action: string = ' ';
+
   constructor(
     private contactService: ContactService,
     private router: Router,
@@ -64,6 +67,16 @@ export class ContactItemComponent implements OnInit {
       this.contactService.addContact(newContact);
     }
     this.router.navigate(['/contacts'], { relativeTo: this.route });
+  }
+
+  onClick() {
+    if(this.action == ' ') {
+      this.action = '✔ ';
+      // alert('Task is marked as done');
+    } else {
+      this.action = ' ';
+        // alert('Unmark task');
+    }
   }
 
 }
