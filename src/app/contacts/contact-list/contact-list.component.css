@@ -1,0 +1,19 @@
+.panel-default{
+  background-color: #303030;
+  border-color: #303030;
+}
+h2{
+  color:white;
+}
+.btn-secondary{
+  background-color: #444;
+  color:white;
+}
+.btn-secondary:hover{
+  background-color: #222;
+}
+.panel-heading {
+ background-color: #316092;
+ border-color: #375A7F;
+}
+

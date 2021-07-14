@@ -54,9 +54,9 @@ export class ContactEditComponent implements OnInit {
     this.router.navigate(['/contacts'], { relativeTo: this.route });
   }
 
-  // onCancel() {
-  //   this.router.navigate(['/contacts'], { relativeTo: this.route });
-  // }
+  onCancel() {
+    this.router.navigate(['/contacts'], { relativeTo: this.route });
+  }
 
   isInvalidContact(newContact: Contact) {
     if (!newContact) {

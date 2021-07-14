@@ -1,3 +1,6 @@
+<div>
+
+
 <a style="cursor: pointer;"
 [routerLink]="[contact.id]"
 class="list-group-item clearfix"
@@ -11,13 +14,14 @@ class="list-group-item clearfix"
   <h5 class="pull-left">{{contact?.name}}</h5>
 
   <span class="pull-right">
-    <a class="btn btn-primary"
+    <!-- <a class="btn btn-primary"
     [routerLink]="[{ id: contact.id}, 'edit']"
     style="margin:10px;">
-    Edit</a>
+    Edit</a> -->
 
-    <a class="btn btn-danger"
+    <a class="btn btn-success"
     (click)="onDelete()"
     >Delete</a>
   </span>
 </a>
+</div>

@@ -6,16 +6,19 @@
           {{contact?.name}}
         </h1>
       </div>
-      <span class="pull-right">
+      <div>
         <a class="btn btn-primary"
         [routerLink]="[{ id: contact.id}, 'edit']"
         style="margin:10px;">
         Edit</a>
 
-        <a class="btn btn-danger"
+        <a class="btn btn-success"
         (click)="onDelete()"
         >Delete</a>
-      </span>
+      </div>
+      <div class="panel-body">
+        <p><b>Status:</b> {{contact?.name}}</p>
+      </div>
     </div>
   </div>
 </div>
