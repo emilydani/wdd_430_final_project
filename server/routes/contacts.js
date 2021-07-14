@@ -28,7 +28,8 @@ router.post('/', (req, res, next) => {
 
     const contact = new Contact({
       id: maxContactId,
-      name: req.body.name
+      name: req.body.name,
+      status: req.body.status
     });
 
     contact.save()

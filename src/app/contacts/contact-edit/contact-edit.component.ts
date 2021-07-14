@@ -43,7 +43,8 @@ export class ContactEditComponent implements OnInit {
     let newContact = new Contact(
       null,
       null,
-      value.name
+      value.name,
+      value.status
     );
 
     if (this.editMode) {

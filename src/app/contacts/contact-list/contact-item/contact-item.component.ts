@@ -58,7 +58,7 @@ export class ContactItemComponent implements OnInit {
       null,
       null,
       value.name,
-
+      value.status
     );
 
     if (this.editMode) {
