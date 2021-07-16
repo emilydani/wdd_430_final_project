@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 var index = require('./server/routes/app');
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
-const contactRoutes = require('./server/routes/contacts');
+const todoRoutes = require('./server/routes/todos');
 
 // establish a connection to the mongo database
 mongoose.connect('mongodb://localhost:27017/final',
@@ -58,7 +58,7 @@ app.use(express.static(path.join(__dirname, 'dist/cms')));
 app.use('/', index);
 
 // ... ADD YOUR CODE TO MAP YOUR URL'S TO ROUTING FILES HERE ...
-app.use('/contacts', contactRoutes);
+app.use('/todos', todoRoutes);
 
 // Tell express to map all other non-defined routes back to the index page
 app.get('*', (req, res) => {

@@ -2,7 +2,7 @@
 
 
 <a style="cursor: pointer;"
-[routerLink]="[contact.id]"
+[routerLink]="[todo.id]"
 class="list-group-item clearfix"
 >
   <button
@@ -11,11 +11,11 @@ class="list-group-item clearfix"
     [ngClass]="action ==' ' ? 'unchecked': 'checked'">
     {{action}}
   </button>
-  <h5 class="pull-left">{{contact?.name}}</h5>
+  <h5 class="pull-left">{{todo?.name}}</h5>
 
   <span class="pull-right">
     <!-- <a class="btn btn-primary"
-    [routerLink]="[{ id: contact.id}, 'edit']"
+    [routerLink]="[{ id: todo.id}, 'edit']"
     style="margin:10px;">
     Edit</a> -->
 

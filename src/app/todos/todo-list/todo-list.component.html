@@ -10,10 +10,10 @@
       </div>
 
       <div class="panel-body">
-        <cms-contact-item
-          *ngFor="let contactEl of contacts; let i = index, let contact of contacts"
-          [contact]="contactEl">
-        </cms-contact-item>
+        <cms-todo-item
+          *ngFor="let todoEl of todos; let i = index, let todo of todos"
+          [todo]="todoEl">
+        </cms-todo-item>
       </div>
     </div>
   </div>

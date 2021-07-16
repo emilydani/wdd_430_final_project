@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContactService } from './contacts/contact.service';
+import { TodoService } from './todos/todo.service';
 
 @Component({
   selector: 'cms-root',
@@ -8,6 +8,6 @@ import { ContactService } from './contacts/contact.service';
 })
 export class AppComponent {
 
-  constructor(private contactService: ContactService) {}
+  constructor(private todoService: TodoService) {}
 
 }

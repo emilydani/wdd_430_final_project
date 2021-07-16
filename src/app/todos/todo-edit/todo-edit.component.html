@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <form id="contact-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form id="todo-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-12 form-group">
           <p><label for="name">Task:</label></p>
@@ -10,7 +10,7 @@
             placeholder="Enter a task"
             class="form-control required" size="120" max="120"
             name="name"
-            [ngModel]="contact?.name" #name="ngModel">
+            [ngModel]="todo?.name" #name="ngModel">
         </div>
         </div>
         <div class="row">

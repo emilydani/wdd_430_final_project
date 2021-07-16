@@ -3,27 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
-import { ContactItemComponent } from './contacts/contact-list/contact-item/contact-item.component';
+import { TodosComponent } from './todos/todos.component';
+import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
+import { TodoListComponent } from './todos/todo-list/todo-list.component';
+import { TodoItemComponent } from './todos/todo-list/todo-item/todo-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
-import { DndModule } from 'ng2-dnd';
-import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
+import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    ContactsComponent,
-    ContactDetailComponent,
-    ContactListComponent,
-    ContactItemComponent,
-    ContactEditComponent,
-    ContactsFilterPipe
+    TodosComponent,
+    TodoDetailComponent,
+    TodoListComponent,
+    TodoItemComponent,
+    TodoEditComponent
   ],
   imports: [
     BrowserModule,

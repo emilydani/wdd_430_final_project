@@ -1,20 +1,20 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Contact } from '../../contact.model';
-import { ContactService } from '../../contact.service';
+import { Todo } from '../../todo.model';
+import { TodoService } from '../../todo.service';
 
 @Component({
-  selector: 'cms-contact-item',
-  templateUrl: './contact-item.component.html',
-  styleUrls: ['./contact-item.component.css']
+  selector: 'cms-todo-item',
+  templateUrl: './todo-item.component.html',
+  styleUrls: ['./todo-item.component.css']
 })
-export class ContactItemComponent implements OnInit {
-  @Input() contact: Contact;
+export class TodoItemComponent implements OnInit {
+  @Input() todo: Todo;
   @Input() index: number;
-  @Output() contactSelected = new EventEmitter<void>();
+  @Output() todoSelected = new EventEmitter<void>();
 
-  originalContact: Contact;
+  originalTodo: Todo;
   editMode: boolean = false;
   id: string;
 
@@ -22,7 +22,7 @@ export class ContactItemComponent implements OnInit {
   action: string = ' ';
 
   constructor(
-    private contactService: ContactService,
+    private todoService: TodoService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -33,28 +33,28 @@ export class ContactItemComponent implements OnInit {
         this.editMode = false;
         return;
       } else {
-        this.originalContact = this.contactService.getContact(params.id);
-        if (!this.originalContact) {
+        this.originalTodo = this.todoService.getTodo(params.id);
+        if (!this.originalTodo) {
           return;
         }
         this.editMode = true;
-        this.contact = JSON.parse(JSON.stringify(this.originalContact));
+        this.todo = JSON.parse(JSON.stringify(this.originalTodo));
       }
     });
   }
 
   onSelected() {
-    this.contactSelected.emit();
+    this.todoSelected.emit();
   }
 
   onDelete() {
-    this.contactService.deleteContact(this.contact);
-    this.router.navigateByUrl('/contacts');
+    this.todoService.deleteTodo(this.todo);
+    this.router.navigateByUrl('/todos');
   }
 
   onSubmit(form: NgForm) {
     let value = form.value;
-    let newContact = new Contact(
+    let newTodo = new Todo(
       null,
       null,
       value.name,
@@ -62,11 +62,11 @@ export class ContactItemComponent implements OnInit {
     );
 
     if (this.editMode) {
-      this.contactService.updateContact(this.originalContact, newContact);
+      this.todoService.updateTodo(this.originalTodo, newTodo);
     } else {
-      this.contactService.addContact(newContact);
+      this.todoService.addTodo(newTodo);
     }
-    this.router.navigate(['/contacts'], { relativeTo: this.route });
+    this.router.navigate(['/todos'], { relativeTo: this.route });
   }
 
   onClick() {

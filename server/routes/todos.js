@@ -1,17 +1,17 @@
 var express = require('express');
 const sequenceGenerator = require('./sequenceGenerator');
-const Contact = require('../models/contact');
+const Todo = require('../models/todo');
 var router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  Contact.find()
+  Todo.find()
   .populate('group')
-    .then(contacts => {
-        console.log(contacts);
+    .then(todos => {
+        console.log(todos);
       res.status(200).json({
           message: 'Task fetched successfully!',
-          contacts: contacts
+          todos: todos
         });
     })
     .catch(error => {
@@ -24,19 +24,19 @@ router.get('/', (req, res, next) => {
 
 
 router.post('/', (req, res, next) => {
-    const maxContactId = sequenceGenerator.nextId("contacts");
+    const maxTodoId = sequenceGenerator.nextId("todos");
 
-    const contact = new Contact({
-      id: maxContactId,
+    const todo = new Todo({
+      id: maxTodoId,
       name: req.body.name,
       status: req.body.status
     });
 
-    contact.save()
-      .then(createdContact => {
+    todo.save()
+      .then(createdTodo => {
         res.status(201).json({
           message: 'Task added successfully',
-          contact: createdContact
+          todo: createdTodo
         });
       })
       .catch(error => {
@@ -49,11 +49,11 @@ router.post('/', (req, res, next) => {
 
 
 router.put('/:id', (req, res, next) => {
-    Contact.findOne({ id: req.params.id })
-      .then(contact => {
-        contact.name = req.body.name;
+    Todo.findOne({ id: req.params.id })
+      .then(todo => {
+        todo.name = req.body.name;
 
-        Contact.updateOne({ id: req.params.id }, contact)
+        Todo.updateOne({ id: req.params.id }, todo)
           .then(result => {
             res.status(204).json({
               message: 'Task updated successfully'
@@ -69,15 +69,15 @@ router.put('/:id', (req, res, next) => {
       .catch(error => {
         res.status(500).json({
           message: 'Task not found.',
-          error: { message: 'Contact not found'}
+          error: { message: 'Todo not found'}
         });
       });
 });
 
 router.delete("/:id", (req, res, next) => {
-    Contact.findOne({ id: req.params.id })
-      .then(contact => {
-        Contact.deleteOne({ id: req.params.id })
+    Todo.findOne({ id: req.params.id })
+      .then(todo => {
+        Todo.deleteOne({ id: req.params.id })
           .then(result => {
             res.status(204).json({
               message: "Task deleted successfully"
