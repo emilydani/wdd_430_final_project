@@ -58,7 +58,10 @@ export class TodoItemComponent implements OnInit {
       null,
       null,
       value.name,
-      value.status
+      value.status,
+      value.time,
+      value.details,
+      value.date
     );
 
     if (this.editMode) {

@@ -1,4 +1,5 @@
 <div class="row">
+
   <div class="panel panel-default">
     <div class="panel-heading clearfix">
       <div>
@@ -6,19 +7,24 @@
           {{todo?.name}}
         </h1>
       </div>
-      <div>
-        <a class="btn btn-primary"
-        [routerLink]="[{ id: todo.id}, 'edit']"
-        style="margin:10px;">
+
+    <div>
+      <a class="btn btn-secondary" [routerLink]="[{ id: todo.id}, 'edit']" style="margin:10px;">
         Edit</a>
 
-        <a class="btn btn-success"
-        (click)="onDelete()"
-        >Delete</a>
-      </div>
-      <div class="panel-body">
-        <p><b>Status:</b> {{todo?.status}}</p>
-      </div>
+      <a class="btn btn-success" (click)="onDelete()">Delete</a>
+    </div>
+  </div>
+
+    <div class="panel-body">
+      <h5><b>Due Date:</b></h5>
+      <p> {{todo?.date}}</p>
+      <br>
+      <h5><b>Estimated time:</b></h5>
+      <p>{{todo?.time}} hours</p>
+      <br>
+      <h5><b>Details:</b> </h5>
+      <p>{{todo?.details}}</p>
     </div>
   </div>
 </div>

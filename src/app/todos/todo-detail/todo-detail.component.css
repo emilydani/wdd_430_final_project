@@ -1,11 +1,26 @@
-.panel-heading, .panel-default, .panel {
+.panel-body {
   background-color: #303030;
   border-color: #303030;
   color:white
+}
+.panel, .panel-default {
+  border-color: #303030;
+}
+.panel-heading {
+  background-color: #316092;
+  border-color: #303030;
+  color: white;
 }
 h3{
   color:white;
 }
 p{
   color:rgb(192, 192, 192);
+}
+.btn-secondary{
+  background-color: #444;
+  color:white;
+}
+.btn-secondary:hover{
+  background-color: #222;
 }
