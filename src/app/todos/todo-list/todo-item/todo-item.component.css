@@ -30,3 +30,7 @@
 h5{
   color:rgb(192, 192, 192);
 }
+
+html {
+  -webkit-tap-highlight-color: #333 !important;
+}

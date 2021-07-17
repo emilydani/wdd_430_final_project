@@ -29,7 +29,10 @@ router.post('/', (req, res, next) => {
     const todo = new Todo({
       id: maxTodoId,
       name: req.body.name,
-      status: req.body.status
+      status: req.body.status,
+      time: req.body.time,
+      details: req.body.details,
+      date: req.body.date
     });
 
     todo.save()

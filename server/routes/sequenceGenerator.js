@@ -1,6 +1,5 @@
 var Sequence = require('../models/sequence');
 
-
 var maxTodoId;
 var sequenceId = null;
 

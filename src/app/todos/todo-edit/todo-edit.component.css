@@ -25,11 +25,6 @@
   border: solid thin lightgrey;
 }
 
-.dragMsg {
-  font-size: 2rem;
-  color: darkgrey;
-  margin-left: 3rem;
-}
 .panel-heading, .panel-default, .panel {
   background-color: #303030;
   border-color: #303030;
